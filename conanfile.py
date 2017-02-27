@@ -13,7 +13,7 @@ class ZMQConan(ConanFile):
     url = "https://github.com/memsharded/conan-zmq.git"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
-    default_options = "shared=False"
+    default_options = "shared=True"
     exports = "FindZeroMQ.cmake"
     generators = "cmake"
 
