@@ -68,3 +68,4 @@ conan_basic_setup()
         
         if self.settings.os == "Linux":
             self.cpp_info.libs.extend(["pthread", "dl", "rt"])
+            self.env_info.LD_LIBRARY_PATH.append(os.path.join(self.package_folder, "lib"))
