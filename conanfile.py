@@ -10,7 +10,7 @@ class ZMQConan(ConanFile):
     version = "4.1.5"
     version_flat = "4_1_5"
     license = "LGPL"
-    url = "https://github.com/memsharded/conan-zmq.git"
+    url = "https://github.com/gasuketsu/conan-zmq.git"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
