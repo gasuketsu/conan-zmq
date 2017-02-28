@@ -46,6 +46,7 @@ conan_basic_setup()
     def package_info(self):
         if not self.settings.os == "Windows":
             self.cpp_info.libs = ["zmq-static"] if not self.options.shared else ["zmq"]
+            self.env_info.LD_LIBRARY_PATH.append(os.path.join(self.package_folder, "lib"))
         else:
             ver = ""
             if self.settings.compiler == "Visual Studio":
@@ -65,9 +66,6 @@ conan_basic_setup()
 
             if not self.settings.os == "Windows":
                 self.cpp_info.cppflags = ["-pthread"]
-        else:
-            if self.settings.os != "Windows":
-                self.env_info.LD_LIBRARY_PATH.append(os.path.join(self.package_folder, "lib"))
 
         if self.settings.os == "Linux":
             self.cpp_info.libs.extend(["pthread", "dl", "rt"])
